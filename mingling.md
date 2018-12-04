@@ -8,7 +8,7 @@
 ##### 4.其他
 ###### git config --global croe.ignorecase false
 ##### git ssh key pair 配置
-#####1.在git bash命令行窗口中输入
+##### 1.在git bash命令行窗口中输入
 ###### ssh-keygen -t rsa -C “你的邮箱”
 ###### 2.然后一路回车，不要输入任何密码之类，生成 ssh key pair
 ###### 3.在用户目录下生成.ssh文件夹，找到公钥和私钥
