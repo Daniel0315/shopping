@@ -189,3 +189,54 @@ create table pay(
    PRIMARY KEY(`pay_id`) 
    )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 ````
+
+### 项目架构
+#### 四层架构：
+##### 视图层
+##### 控制层controller
+##### 逻辑业务层service
+##### dao层 进行数据库的操作
+
+ 
+ #### Mybatis-generator插件
+ ##### 引入org.mybatis.generator.jar包
+ ##### 配置generarorConfig.xml文件
+ ###### 配置properties文件
+ ###### 配置mysql的jar包
+ ###### 在jdbcConnection中配置驱动，密码，用户名，数据库路径
+ ###### 配置实例类路径 targetProject是从src开始的：src/main/java
+ ###### 配置sql映射文件路径 targetProject是从src开始的：src/main/resources
+ ###### 配置生成dao接口的路径 targetProject是从src开始的：src/main/java
+ ###### 配置数据库的表 
+ 
+ ### 搭建SSM框架
+ #### spring.xml
+ ##### 开启注解：
+ ###### 通过component-scan来对指定路径下的所有文件扫描
+ ##### 开启基于注解的实物配置：
+ ###### 通过annotation-driven
+ ##### 配置数据源
+ ###### 创建DruidDataSource的对象
+ ###### 给driverClassName，url,username,password赋值，利用${}
+ ##### 配置SqlSessionFactoryBean
+ ###### configLocation：classpath:mybatis-config.xml
+ ###### mapperLocations：classpath:com/neuedu/mapping/*Mapper.xml
+ ###### mapperLocations：classpath:com/neuedu/mapping/*Mapper.xml
+ ##### 配置mybatis Dao接口的代理实现类
+ #### springmvc.xml
+ ##### component-scan:
+ ###### 通过注解配置扫描controller包
+ ##### 配置返回的数据类型
+ ###### MappingJackson2HttpMessageConverter配置json
+ #### web.xml
+ ##### 加载spring配置文件
+ ###### classpath:spring.xml
+ ##### 加载监听器
+ ##### 加载DispacherServlet
+ ###### 配置springmvc.xml
+ ##### dispacherservlet
+ ###### /指缺省路径
+ 
+ #### Controller
+ ##### @RestController
+ ###### 指方法返回的是json格式的数据
